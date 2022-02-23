@@ -1,0 +1,13 @@
+package com.imfdb.IMFDB;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ImfdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ImfdbApplication.class, args);
+	}
+
+}
