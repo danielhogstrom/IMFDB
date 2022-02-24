@@ -2,10 +2,12 @@ package com.imfdb.IMFDB.repository;
 
 import com.imfdb.IMFDB.entity.Movie;
 import lombok.Getter;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MovieRepository {
 
     private @Getter
