@@ -21,7 +21,6 @@ public class MovieController {
     @Autowired
     private MovieService service;
 
-    MovieService service = new MovieService();
 
     @GetMapping("/")
     public String getIndex(Model model){
