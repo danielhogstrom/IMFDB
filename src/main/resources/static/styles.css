@@ -57,3 +57,11 @@ filter: blur(0px)!important;
 filter: blur(1px);
 }
 
+#containerImage,#cardContainer,#cardDivider,#movieCard,#cardDivider2{
+background-color: black!important;
+}
+
+#navbarBrand,#navbarMain{
+background-color: #121212!important;
+}
+
