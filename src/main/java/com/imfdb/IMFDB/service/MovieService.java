@@ -16,5 +16,12 @@ public class MovieService {
         return repository.getMovies();
     }
 
-    public Movie getMovie(int id){return getMovies().get(id);}
+    public Movie getMovie(int id){
+        for (Movie movie: getMovies()) {    // för att få fram en specifik id så gjorde vi en loop här.
+            if (id == movie.getId()){
+                return movie;
+            }
+        }
+        return null;
+    }
 }

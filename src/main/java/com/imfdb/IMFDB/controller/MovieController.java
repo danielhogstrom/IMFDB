@@ -29,22 +29,17 @@ public class MovieController {
         return "index";
     }
 
+
+
     @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable int id, Model model) {
-        Movie movie = service.getMovies().get(id); // ändra detta så att det kopplas till id
+        Movie movie = service.getMovie(id); // vi har ändrat så denna nu tar in id.
         model.addAttribute("movie", movie);
         List<Review> reviews = reviewRepository.getReviews();
         model.addAttribute("reviews", reviews);
         return "movie";
     }
 
-    //----Hej
-    //---hej svejs
 
-    @PostMapping("/reviews")
-    public Review addReview (@RequestBody Review review) {
-        reviewRepository.addReview(review);
-        return review;
-    }
 
 }
