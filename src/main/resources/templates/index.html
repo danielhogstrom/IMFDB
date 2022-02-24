@@ -17,7 +17,7 @@
 </head>
 <body>
 <div th:insert="fragments/header::header"></div>
-    <div class="container bg-dark" id="containerImage">
+    <div class="bg-dark" id="containerImage">
         <div class="row bg-dark">
             <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4 bg-dark" style="width: 18rem;">
                 <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}">
