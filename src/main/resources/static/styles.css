@@ -57,3 +57,8 @@ filter: blur(0px)!important;
 filter: blur(1px);
 }
 
+#cardBody,#cardStyle,#cardRow,#containerImage{
+background-color: black!important;
+}
+
+

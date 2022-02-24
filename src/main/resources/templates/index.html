@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Imfdb</title>
+    <title>IMFDb</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="../static/styles.css" th:href="'/styles.css'">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar-nav">
         <a class="navbar-brand" href="#"></a>
         <img src="https://gcdnb.pbrd.co/images/VR1UwNMHJ49o.png?o=1" alt="" width="60" height="54">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -36,13 +36,11 @@
         </div>
     </nav>
     <div class="container bg-dark" id="containerImage">
-        <div class="row bg-dark">
-            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4 bg-dark" style="width: 18rem;">
-                <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}">
-                <div class="card-body bg-dark">
-                    <h5 class="card-title" th:text="${movie.title}">Card title</h5>
-                    <p class="card-text">Maybe info about the movie?</p>
-                    <a href="#" class="button1 btn btn-primary bg-dark" th:text="${movie.title}">Button</a>
+        <div class="row bg-dark" id="cardRow">
+            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4 bg-dark" id="cardStyle" style="width: 18rem;">
+                <img class="movieCard1 card-img-top img-thumbnail img-responsive bg-dark" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}">
+                <div class="card-body bg-dark" id="cardBody">
+                    <a href="#" class="button1 btn btn-dark" th:text="${movie.title}">Button</a>
                 </div>
             </div>
         </div>
