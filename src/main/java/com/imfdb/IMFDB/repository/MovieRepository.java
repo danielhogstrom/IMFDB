@@ -24,8 +24,4 @@ public class MovieRepository {
         movies.add(new Movie(7,"The adventures of Tintin", "Drama","Good movie", 2011, "Steven Spielberg", 11, "https://tinyurl.com/5xamvdfs", "1:47"));
     }
 
-    public boolean addMovie(Movie movie){
-        return movies.add(movie);
-    }
-
 }
