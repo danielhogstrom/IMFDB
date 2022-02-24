@@ -16,5 +16,5 @@ public class MovieService {
         return repository.getMovies();
     }
 
-    //vi behöver en metod här som heter getMovie som hjälper oss att plocka ut ett id
+    public Movie getMovie(int id){return getMovies().get(id);}
 }
