@@ -36,7 +36,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div th:each="movie:${movies}" class="card bg-dark col-6-md text-white" style="width: 18rem;">
+            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4" style="width: 18rem;">
                 <img class="card-img-top img-thumbnail img-responsive" th:src="${movie.imgUrl}" alt="${movie.title}">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${movie.title}">Card title</h5>
