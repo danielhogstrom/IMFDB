@@ -50,6 +50,10 @@ table {
 
 
 #movieCard:hover{
-filter: contrast(150%)!important;
+filter: blur(0px)!important;
+}
+
+#movieCard{
+filter: blur(1px);
 }
 
