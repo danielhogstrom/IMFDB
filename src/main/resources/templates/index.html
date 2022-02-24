@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Imfdb</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../static/styles.css" th:href="'/styles.css'">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
+        <img src="https://ibb.co/Zx0FMnG" alt="" width="30" height="24">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,16 +35,14 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4" style="width: 18rem;">
-                <img class="card-img-top img-thumbnail img-responsive" th:src="${movie.imgUrl}" alt="${movie.title}">
-                <div class="card-body">
+    <div class="container bg-dark" id="containerImage">
+        <div class="row bg-dark">
+            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-lg-4 bg-dark" style="width: 18rem;">
+                <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}">
+                <div class="card-body bg-dark">
                     <h5 class="card-title" th:text="${movie.title}">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Maybe info about the movie?</p>
+                    <a href="#" class="button1 btn btn-primary bg-dark" th:text="${movie.title}">Button</a>
                 </div>
             </div>
         </div>
