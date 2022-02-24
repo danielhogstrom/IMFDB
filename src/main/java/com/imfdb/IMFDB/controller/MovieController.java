@@ -2,6 +2,7 @@ package com.imfdb.IMFDB.controller;
 
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
+import com.imfdb.IMFDB.repository.MovieRepository;
 import com.imfdb.IMFDB.repository.ReviewRepository;
 import com.imfdb.IMFDB.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.text.AttributedString;
 import java.util.List;
 @SuppressWarnings("unused")
 @Controller
@@ -46,5 +48,16 @@ public class MovieController {
         reviewRepository.addReview(review);
         return review;
     }
-
+    @GetMapping("/addmovie")
+    public String createMovie(Model model){
+        model.addAttribute("movie", new Movie());
+        return "addmovie";
+    }
+    @PostMapping("/addmovie")
+    public String addMovie(Movie movie){
+        if (service.addMovie(movie)){
+            return "index";
+        }
+        return "addmovie";
+    }
 }

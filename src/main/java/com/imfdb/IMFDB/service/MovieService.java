@@ -12,9 +12,15 @@ public class MovieService {
     @Autowired
     MovieRepository repository;
 
-    public List<Movie> getMovies(){
+    public List<Movie> getMovies() {
         return repository.getMovies();
     }
 
-    public Movie getMovie(int id){return getMovies().get(id);}
+    public Movie getMovie(int id) {
+        return getMovies().get(id);
+    }
+
+    public boolean addMovie(Movie movie) {
+        return repository.addMovie(movie);
+    }
 }

@@ -77,6 +77,14 @@
                                 <td>Play time</td>
                                 <td th:text="${movie.length}"></td>
                             </tr>
+                            <tr>
+                                <td>Rating</td>
+                                <td>5/5</td>
+                            </tr>
+                            <tr>
+                                <td>Reviews</td>
+                                <td><a href="https://example.com" th:text="${movie.title} + ' reviews'"></a></td>
+                            </tr>
                             <tbody>
                         </table>
                     </div>
