@@ -13,7 +13,7 @@ public class ReviewController {
     private ReviewRepository reviewRepository;
 
     @PostMapping("/reviews")
-    public Review addReview (@RequestBody Review review) {
+    public Review addReview(@RequestBody Review review) {
         reviewRepository.addReview(review);
         return review;
     }

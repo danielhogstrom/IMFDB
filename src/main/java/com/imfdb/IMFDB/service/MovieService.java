@@ -12,25 +12,20 @@ public class MovieService {
     @Autowired
     MovieRepository repository;
 
-    public List<Movie> getMovies(){
+    public List<Movie> getMovies() {
         return repository.getMovies();
     }
 
-    public Movie getMovie(int id){
-        for (Movie movie: getMovies()) {    // för att få fram en specifik id så gjorde vi en loop här.
-            if (id == movie.getId()){
+    public Movie findMovieById(int id) {
+        for (Movie movie : getMovies()) {
+            if (id == movie.getId()) {
                 return movie;
             }
         }
         return null;
     }
-}
 
     public boolean addMovie(Movie movie) {
         return repository.getMovies().add(movie);
-    }
-
-    public Movie getMovie(int id) {
-        return getMovies().get(id);
     }
 }
