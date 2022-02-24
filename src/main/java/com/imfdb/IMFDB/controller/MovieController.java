@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.AttributedString;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -44,9 +45,9 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-    public String addMovie(@ModelAttribute Movie movie) {
+    public String addMovie(@ModelAttribute Movie movie ) {
         if (service.addMovie(movie)) {
-            return "index";
+            return "redirect:/";
         }
         return "addmovie";
     }

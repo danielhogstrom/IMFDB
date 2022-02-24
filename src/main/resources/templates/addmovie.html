@@ -5,7 +5,7 @@
     <title>Movie</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../styles.css" th:href="'/styles.css'">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
@@ -17,6 +17,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<div th:insert="fragments/header::header"></div>
 <form action="/addmovie" th:object="${movie}" method="POST">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -70,5 +71,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Add movie to database</button>
 </form>
+<div th:insert="fragments/footer::footer"></div>
 </body>
 </html>
