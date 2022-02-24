@@ -23,7 +23,7 @@ public class MovieController {
 
 
     @GetMapping("/")
-    public String getIndex(Model model){
+    public String getIndex(Model model) {
         List<Movie> movies = service.getMovies();
         model.addAttribute("movies", movies);
         return "index";
