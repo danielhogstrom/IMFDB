@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Movie</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css" th:href="'/styles.css'">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
@@ -18,30 +17,15 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<div th:insert="fragments/header::header"></div>
 <div class="container">
     <div class="card">
         <div class="card-body">
             <h1 class="card-title " th:text="${movie.title}"></h1>
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6">
-                    <div class="white-box text-center"><img th:src="${movie.imgUrl}" width="350" class="img-responsive" ></div>
+                    <div class="white-box text-center"><img th:src="${movie.imgUrl}" width="350" class="img-responsive">
+                    </div>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Storyline</h4>
@@ -93,6 +77,20 @@
         </div>
     </div>
 </div>
-
+<div class="container">
+    <h2 class="text-white" id="header2">Write review</h2>
+    <form method="post" action="/movie/{id}/review/{id}">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="email" class="form-control col-6" id="exampleFormControlInput1" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control-lg form-control" id="exampleFormControlTextarea1" rows="3"
+                      placeholder="Review"></textarea>
+        </div>
+        <input type="submit" value="Submit review" id="review-button" class="btn btn-dark">
+    </form>
+</div>
 </body>
 </html>
