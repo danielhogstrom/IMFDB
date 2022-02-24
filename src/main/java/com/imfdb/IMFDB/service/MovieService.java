@@ -25,3 +25,12 @@ public class MovieService {
         return null;
     }
 }
+
+    public boolean addMovie(Movie movie) {
+        return repository.getMovies().add(movie);
+    }
+
+    public Movie getMovie(int id) {
+        return getMovies().get(id);
+    }
+}
