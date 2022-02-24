@@ -10,8 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Movie {
+    private int id;
     private String title;
     private String genre;
+    private String description;
     private int yearMade;
     private String director;
     private int recommendedAge;

@@ -15,4 +15,6 @@ public class MovieService {
     public List<Movie> getMovies(){
         return repository.getMovies();
     }
+
+    public Movie getMovie(int id){return getMovies().get(id);}
 }
