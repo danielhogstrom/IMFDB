@@ -52,6 +52,11 @@ filter: brightness(200%);
 filter: drop-shadow(8px 8px 10px white);
 }
 
+#dropdownMenuButton:hover{
+filter: brightness(200%);
+filter: drop-shadow(8px 8px 10px white);
+}
+
 h1{
 font-family: "candara";
 }
@@ -61,17 +66,17 @@ font-family: "optima";
 }
 
 .dropdown-menu{
-background-color: black;
+background-color: #121212;
 color: white;
 }
 
 .dropdown-item{
-background-color: black;
+background-color: #121212;
 color: gray;
 }
 
 .dropdown-item:hover{
-background-color: black;
+background-color: #121212;
 color: white;
 }
 
