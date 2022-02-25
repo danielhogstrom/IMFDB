@@ -65,7 +65,7 @@
                             </tr>
                             <tr>
                                 <td>Reviews</td>
-                                <td><a href="https://example.com" th:text="${movie.title} + ' reviews'"></a></td>
+                                <td><a th:href="'review/' + ${movie.id}" th:text="${movie.title} + ' reviews'"></a></td>
                             </tr>
                             <tbody>
                         </table>
@@ -75,16 +75,22 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <h2 class="text-white" id="header2">Write review</h2>
-    <form method="post" action="/movie/{id}/review/{id}">
+    <form method="post" th:action="'review/' + ${movie.id}" th:object="${review}">
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="email" class="form-control col-6" id="exampleFormControlInput1" placeholder="Name">
+            <input th:field="*{name}" class="form-control col-6" id="exampleFormControlInput1" placeholder="Name">
         </div>
+        <select th:field="*{score}">
+            <option th:value="1">1</option>
+            <option th:value="2">2</option>
+            <option th:value="3">3</option>
+            <option th:value="4">4</option>
+            <option th:value="5">5</option>
+        </select>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control-lg form-control" id="exampleFormControlTextarea1" rows="3"
+            <textarea th:field="*{review}"class="form-control-lg form-control" id="exampleFormControlTextarea1" rows="3"
                       placeholder="Review"></textarea>
         </div>
         <input type="submit" value="Submit review" id="review-button" class="btn btn-dark">

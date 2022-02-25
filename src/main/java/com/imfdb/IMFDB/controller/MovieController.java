@@ -32,10 +32,9 @@ public class MovieController {
 
     @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable int id, Model model) {
-        Movie movie = movieService.findMovieById(id); // vi har ändrat så denna nu tar in id.
+        Movie movie = movieService.findMovieById(id);
         model.addAttribute("movie", movie);
-        List<Review> reviews = reviewService.getReviews();
-        model.addAttribute("reviews", reviews);
+        model.addAttribute("review", new Review());
         return "movie";
     }
 

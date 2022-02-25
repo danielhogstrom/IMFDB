@@ -9,11 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class Review {
     String name;
     int score;
-    String reviews;
+    String review;
 }
 
 
