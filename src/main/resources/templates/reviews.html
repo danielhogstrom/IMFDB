@@ -18,11 +18,11 @@
 </head>
 <body>
 <div th:insert="fragments/header::header"></div>
-    <div class="card" style="width: 18rem;" th:each="review :${reviews}">
+    <div class="card" th:each="review :${reviews}">
         <div class="card-body">
             <h5 class="card-title" th:text="${movie.title}">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted" th:text="${review.name}">Card subtitle</h6>
-            <h4 th:text="'Overall rating:' + ${review.score}"></h4>
+            <h6 th:text="'Overall rating:' + ${review.score}"></h6>
+            <h6 class="card-subtitle mb-2 text-muted" th:text="'by '+  ${review.name}">Card subtitle</h6>
             <p class="card-text" th:text="${review.review}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
