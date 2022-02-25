@@ -5,6 +5,7 @@ import com.imfdb.IMFDB.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -24,6 +25,16 @@ public class MovieService {
             }
         }
         return null;
+    }
+
+    public List<Movie> getMoviesByGenre(String genre){
+        List<Movie> movies = new ArrayList<>();
+        for (Movie movie : repository.getMovies()){
+            if (movie.getGenre().equals(genre)){
+                movies.add(movie);
+            }
+        }
+        return movies;
     }
 
     public boolean addMovie(Movie movie) {

@@ -49,4 +49,11 @@ public class MovieController {
         movieService.addMovie(movie);
         return "redirect:/";
     }
+
+    @GetMapping("/filterby/{genre}")
+    public String sortedlist( @PathVariable String genre, Model model){
+        List<Movie> movies = movieService.getMoviesByGenre(genre);
+        model.addAttribute("movies",movies);
+        return "filterby";
+    }
 }
