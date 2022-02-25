@@ -17,56 +17,59 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<div th:insert="fragments/header::header"></div>
 <form action="/addmovie" method="post" th:object="${movie}">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputTitle">Movie Title</label>
-            <input type="text" th:value="*{title}" class="form-control" id="inputTitle" placeholder="Titanic">
+            <input th:field="*{title}" class="form-control" id="inputTitle" placeholder="Titanic">
         </div>
         <div class="form-group col-md-4">
             <label for="inputGenre">Genre</label>
-            <select th:value="*{Genre}" id="inputGenre" class="form-control">
-                <option selected>Drama</option>
-                <option>Action</option>
-                <option>Adventure</option>
-                <option>Comedy</option>
-                <option>Romance</option>
+            <select th:field="*{Genre}" id="inputGenre" class="form-control">
+                <option selected th:value="Drama">Drama</option>
+                <option th:value="Action">Action</option>
+                <option th:value="Adventure">Adventure</option>
+                <option th:value="Comedy">Comedy</option>
+                <option th:value="Romance">Romance</option>
             </select>
         </div>
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputImgUrl">imgUrl for the movie </label>
-        <input type="text" th:value="*{imgUrl}" class="form-control" id="inputImgUrl" placeholder="https://tinyurl.com/5xamvdfs">
+        <input type="text" th:field="*{imgUrl}" class="form-control" id="inputImgUrl" placeholder="https://tinyurl.com/5xamvdfs">
     </div>
+        <!--
         <div class="form-group col-md-6">
             <label for="inputID">ID of the movie </label>
-            <input type="text" th:value="*{imgUrl}" class="form-control" id="inputID" placeholder="234">
+            <input type="text" th:thfield="*{imgUrl}" class="form-control" id="inputID" placeholder="234">
         </div>
+        -->
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputRecommendedAge">Recommended age of viewer</label>
-            <input type="text" th:value="*{recommendedAge}" class="form-control" id="inputRecommendedAge">
+            <input th:field="*{recommendedAge}" class="form-control" id="inputRecommendedAge">
         </div>
         <div class="form-group col-md-6">
             <label for="inputDirector">Director</label>
-            <input type="text" th:value="*{director}" class="form-control" id="inputDirector" placeholder="Director">
+            <input th:field="*{director}" class="form-control" id="inputDirector" placeholder="Director">
         </div>
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputYearMade">Year of release</label>
-        <input type="text" th:value="*{yearMade}" class="form-control" id="inputYearMade" placeholder="2000">
+        <input th:field="*{yearMade}" class="form-control" id="inputYearMade" placeholder="2000">
     </div>
     <div class="form-group col-md-6">
         <label for="inputLength">Length of film</label>
-        <input type="text" th:value="*{length}" class="form-control" id="inputLength" placeholder="2:05">
+        <input th:field="*{length}" class="form-control" id="inputLength" placeholder="2:05">
     </div>
     </div>
     <div class="form-group">
         <label for="inputDescription">Storyline</label>
-        <textarea th:value="*{description}" class="form-control" id="inputDescription" rows="3"></textarea>
+        <textarea th:field="*{description}" class="form-control" id="inputDescription" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add movie to database</button>
 </form>

@@ -2,40 +2,39 @@ package com.imfdb.IMFDB.controller;
 
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
-import com.imfdb.IMFDB.repository.ReviewRepository;
 import com.imfdb.IMFDB.service.MovieService;
+import com.imfdb.IMFDB.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
 @Controller
 public class MovieController {
-    @Autowired
-    private ReviewRepository reviewRepository;
 
     @Autowired
-    private MovieService service;
+    private MovieService movieService;
+    @Autowired
+    private ReviewService reviewService;
 
 
     @GetMapping("/")
     public String getIndex(Model model) {
-        List<Movie> movies = service.getMovies();
+        List<Movie> movies = movieService.getMovies();
         model.addAttribute("movies", movies);
         return "index";
     }
 
     @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable int id, Model model) {
-        Movie movie = service.findMovieById(id); // vi har ändrat så denna nu tar in id.
+        Movie movie = movieService.findMovieById(id); // vi har ändrat så denna nu tar in id.
         model.addAttribute("movie", movie);
-        List<Review> reviews = reviewRepository.getReviews();
+        List<Review> reviews = reviewService.getReviews();
         model.addAttribute("reviews", reviews);
         return "movie";
     }
@@ -48,9 +47,7 @@ public class MovieController {
 
     @PostMapping("/addmovie")
     public String addMovie(Movie movie) {
-        if (service.addMovie(movie)) {
-            return "index";
-        }
-        return "addmovie";
+        movieService.addMovie(movie);
+        return "redirect:/";
     }
 }

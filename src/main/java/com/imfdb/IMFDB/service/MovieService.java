@@ -26,6 +26,8 @@ public class MovieService {
     }
 
     public boolean addMovie(Movie movie) {
+        int id = repository.getMovies().size()+1;
+        movie.setId(id);
         return repository.getMovies().add(movie);
     }
 }
