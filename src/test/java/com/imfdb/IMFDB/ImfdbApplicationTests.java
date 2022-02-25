@@ -31,6 +31,11 @@ class ImfdbApplicationTests {
         for (Movie movie : movies) {
             Assertions.assertEquals("Comedy", movie.getGenre());
         }
+		movies = service.getMoviesByGenre("Drama");
+
+		for (Movie movie : movies) {
+			Assertions.assertEquals("Drama", movie.getGenre());
+		}
     }
 
 }
