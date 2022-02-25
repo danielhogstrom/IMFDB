@@ -25,7 +25,7 @@
                 <a th:href="@{/movie/{id}(id=${movie.id})}">
                 <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}"></a>
                 <div class="card-body bg-dark" id="cardDivider2">
-                    <a th:href="@{/movie/{id}(id=${movie.id})}" class="button1 btn btn-dark" th:text="${movie.title}">Button</a>
+                    <a th:href="@{/movie/{id}(id=${movie.id})}" class="button1 btn btn-dark" id="movieCardButton1" th:text="${movie.title}">Button</a>
                 </div>
             </div>
         </div>
