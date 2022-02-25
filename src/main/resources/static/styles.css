@@ -1,6 +1,7 @@
 body {
 	line-height: 1;
 	background-color: black;
+	color: white;
 }
 ol, ul {
 	list-style: none;
@@ -33,7 +34,11 @@ filter: blur(1px);
 background-color: black!important;
 }
 
-#navbarBrand,#navbarMain{
+#navbarClass,#navbarMain{
 background-color: #121212!important;
+}
+
+#movieCardBody,#movieCardClass{
+background-color: black!important;
 }
 

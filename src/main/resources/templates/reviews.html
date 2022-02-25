@@ -18,19 +18,13 @@
 </head>
 <body>
 <div th:insert="fragments/header::header"></div>
-
-    <div class="container bg-dark" id="containerImage">
-        <div class="row bg-dark" id="cardContainer">
-            <div th:each="movie:${movies}" class="card col-md-12 col-lg-6 col-xl-4 bg-dark" id="cardDivider" style="width: 18rem;">
-                <a th:href="@{/movie/{id}(id=${movie.id})}">
-                <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}"></a>
-                <div class="card-body bg-dark" id="cardDivider2">
-                    <a th:href="@{/movie/{id}(id=${movie.id})}" class="button1 btn btn-dark" th:text="${movie.title}">Button</a>
-                </div>
-            </div>
+    <div class="card" th:each="review :${reviews}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${movie.title}">Card title</h5>
+            <h6 th:text="'Overall rating:' + ${review.score}"></h6>
+            <h6 class="card-subtitle mb-2 text-muted" th:text="'by '+  ${review.name}">Card subtitle</h6>
+            <p class="card-text" th:text="${review.review}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
-</div>
-<div th:insert="fragments/footer::footer"></div>
 </body>
 </html>
