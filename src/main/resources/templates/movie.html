@@ -60,14 +60,6 @@
                                 <td>Play time</td>
                                 <td th:text="${movie.length}"></td>
                             </tr>
-                            <tr>
-                                <td>Rating</td>
-                                <td>5/5</td>
-                            </tr>
-                            <tr>
-                                <td>Reviews</td>
-                                <td><a th:href="'review/' + ${movie.id}" th:text="${movie.title} + ' reviews'"></a></td>
-                            </tr>
                             <tbody>
                         </table>
                     </div>
@@ -76,7 +68,16 @@
         </div>
     </div>
 </div>
-
+<div th:each="review :${reviews}">
+    <div class="card container text-white mt-3" id="cardContainer">
+        <div class="card-body">
+            <h6 th:text="'Rating: ' + ${review.score}"></h6>
+            <p class="card-text" th:text="${review.review}">Some quick example text to build on the card title and make
+                up the bulk of the card's content.</p>
+            <h6 class="card-subtitle mb-2 text-muted" th:text="'Name of reviewer: '+  ${review.name}">Card subtitle</h6>
+        </div>
+    </div>
+</div>
 <div class="container">
     <h2 class="text-white" id="header2">Write review</h2>
     <form method="post" th:action="'review/' + ${movie.id}" th:object="${review}">
@@ -91,7 +92,8 @@
             <option th:value="5">5</option>
         </select>
         <div class="mb-3">
-            <textarea th:field="*{review}"class="form-control-lg form-control" id="exampleFormControlTextarea1" rows="3"
+            <textarea th:field="*{review}" class="form-control-lg form-control" id="exampleFormControlTextarea1"
+                      rows="3"
                       placeholder="Review"></textarea>
         </div>
         <input type="submit" value="Submit review" id="review-button" class="btn btn-dark">

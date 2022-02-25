@@ -2,14 +2,12 @@ package com.imfdb.IMFDB.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class Movie {
@@ -40,6 +38,10 @@ public class Movie {
         this.recommendedAge = recommendedAge;
         this.imgUrl = imgUrl;
         this.length = length;
+        this.reviews = new ArrayList<>();
+    }
+
+    public Movie() {
         this.reviews = new ArrayList<>();
     }
 }

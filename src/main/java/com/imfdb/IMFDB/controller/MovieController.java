@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -34,6 +35,7 @@ public class MovieController {
     public String getMovie(@PathVariable int id, Model model) {
         Movie movie = movieService.findMovieById(id);
         model.addAttribute("movie", movie);
+        model.addAttribute("reviews", movie.getReviews());
         model.addAttribute("review", new Review());
         return "movie";
     }

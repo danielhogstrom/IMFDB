@@ -24,6 +24,7 @@ table {
 
 #movieCard:hover{
 filter: blur(0px)!important;
+filter: drop-shadow(8px 8px 10px white);
 }
 
 #movieCard{
@@ -40,5 +41,22 @@ background-color: #121212!important;
 
 #movieCardBody,#movieCardClass{
 background-color: black!important;
+}
+
+.nav-item{
+font-family: "verdana"
+}
+
+.nav-item:hover{
+filter: brightness(200%);
+filter: drop-shadow(8px 8px 10px white);
+}
+
+h1{
+font-family: "candara";
+}
+
+#movieCardButton1{
+font-family: "optima";
 }
 
