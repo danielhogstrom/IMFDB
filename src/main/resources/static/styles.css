@@ -60,3 +60,18 @@ font-family: "candara";
 font-family: "optima";
 }
 
+.dropdown-menu{
+background-color: black;
+color: white;
+}
+
+.dropdown-item{
+background-color: black;
+color: gray;
+}
+
+.dropdown-item:hover{
+background-color: black;
+color: white;
+}
+
