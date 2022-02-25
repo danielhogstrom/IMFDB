@@ -35,7 +35,7 @@ public class MovieController {
     public String getMovie(@PathVariable int id, Model model) {
         Movie movie = movieService.findMovieById(id);
         model.addAttribute("movie", movie);
-        model.addAttribute("reviews", movie.getReviews());
+        model.addAttribute("reviews", reviewService.getReviewsByMovieId(id));
         model.addAttribute("review", new Review());
         return "movie";
     }
