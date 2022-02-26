@@ -23,7 +23,6 @@ public class MovieController {
     @Autowired
     private ReviewService reviewService;
 
-
     @GetMapping("/")
     public String getIndex(Model model) {
         List<Movie> movies = movieService.getMovies();
@@ -53,7 +52,7 @@ public class MovieController {
     }
 
     @GetMapping("/filterby/{genre}")
-    public String sortedlist( @PathVariable String genre, Model model){
+    public String sortedlist(@PathVariable String genre, Model model){
         List<Movie> movies = movieService.getMoviesByGenre(genre);
         model.addAttribute("movies",movies);
         return "filterby";
