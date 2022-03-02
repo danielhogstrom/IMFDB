@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,7 +23,6 @@ public class MovieController {
     @Autowired
     private ReviewService reviewService;
 
-
     @GetMapping("/")
     public String getIndex(Model model) {
         List<Movie> movies = movieService.getMovies();
@@ -34,6 +34,7 @@ public class MovieController {
     public String getMovie(@PathVariable int id, Model model) {
         Movie movie = movieService.findMovieById(id);
         model.addAttribute("movie", movie);
+        model.addAttribute("reviews", reviewService.getReviewsByMovieId(id));
         model.addAttribute("review", new Review());
         return "movie";
     }
@@ -45,13 +46,13 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-    public String addMovie(Movie movie) {
+    public String addMovie(@ModelAttribute Movie movie) {
         movieService.addMovie(movie);
         return "redirect:/";
     }
 
     @GetMapping("/filterby/{genre}")
-    public String sortedlist( @PathVariable String genre, Model model){
+    public String sortedlist(@PathVariable String genre, Model model){
         List<Movie> movies = movieService.getMoviesByGenre(genre);
         model.addAttribute("movies",movies);
         return "filterby";

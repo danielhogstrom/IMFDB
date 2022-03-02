@@ -2,18 +2,21 @@ package com.imfdb.IMFDB.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "movies")
 public class Movie {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String title;
     private String genre;
     private String description;
@@ -21,17 +24,18 @@ public class Movie {
     private String director;
     private int recommendedAge;
     private String imgUrl;
+    @Column(name = "movie_length")
     private String length;
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
-    public Movie(int id, String title,
+    public Movie(String title,
                  String genre,
                  String description,
                  int yearMade,
                  String director,
                  int recommendedAge,
                  String imgUrl, String length) {
-        this.id = id;
         this.title = title;
         this.genre = genre;
         this.description = description;
@@ -40,6 +44,10 @@ public class Movie {
         this.recommendedAge = recommendedAge;
         this.imgUrl = imgUrl;
         this.length = length;
+        this.reviews = new ArrayList<>();
+    }
+
+    public Movie() {
         this.reviews = new ArrayList<>();
     }
 }

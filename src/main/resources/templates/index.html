@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://gcdnb.pbrd.co/images/VR1UwNMHJ49o.png?o=1" type="image/icon type">
     <title>Imfdb</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link rel="stylesheet" href="../styles.css" th:href="'/styles.css'">
@@ -21,11 +22,11 @@
 
     <div class="container bg-dark" id="containerImage">
         <div class="row bg-dark" id="cardContainer">
-            <div th:each="movie:${movies}" class="card col-md-12 col-lg-6 col-xl-4 bg-dark" id="cardDivider" style="width: 18rem;">
+            <div th:each="movie:${movies}" class="card col-sm-12 col-md-6 col-xl-4 bg-dark" id="cardDivider">
                 <a th:href="@{/movie/{id}(id=${movie.id})}">
-                <img class="movieCard1 card-img-top img-thumbnail img-responsive" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}"></a>
+                <img class="movieCard1 card-img-top" id="movieCard" th:src="${movie.imgUrl}" alt="${movie.title}"></a>
                 <div class="card-body bg-dark" id="cardDivider2">
-                    <a th:href="@{/movie/{id}(id=${movie.id})}" class="button1 btn btn-dark" th:text="${movie.title}">Button</a>
+
                 </div>
             </div>
         </div>
