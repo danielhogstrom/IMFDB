@@ -1,2 +1,2 @@
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ("The Lord of the rings", "Fantasy", "It's like the book about a ring, but more of a movie",2001, "Peter Jackson", 11, "https://tinyurl.com/4e4pe9fm", "2:58");
+VALUES ('The Lord of the rings', 'Fantasy', 'Its like the book about a ring, but more of a movie' ,2001, 'Peter Jackson', 11, 'https://tinyurl.com/4e4pe9fm', '2:58');
