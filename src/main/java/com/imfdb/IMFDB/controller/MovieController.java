@@ -1,5 +1,6 @@
 package com.imfdb.IMFDB.controller;
 
+import com.imfdb.IMFDB.entity.Genre;
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
 import com.imfdb.IMFDB.service.MovieService;
@@ -34,9 +35,16 @@ public class MovieController {
     @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable int id, Model model) {
         Movie movie = movieService.findMovieById(id);
+        String genre = "";
+
+        for(Genre movie1 : movie.getGenre()) {
+            genre+= movie1.toString() + "  ";
+        }
+
         model.addAttribute("movie", movie);
         model.addAttribute("reviews", reviewService.getReviewsByMovieId(id));
         model.addAttribute("review", new Review());
+        model.addAttribute("genre", genre);
         return "movie";
     }
 
