@@ -33,11 +33,23 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User
                 .withUsername("Daniel")
-                .password(encoder().encode("password"))
-                .roles("USER").build());
+                .password(encoder().encode("daniel"))
+                .roles("ADMIN").build());
         manager.createUser(User
-                .withUsername("admin")
-                .password(encoder().encode("admin"))
+                .withUsername("Theo")
+                .password(encoder().encode("theo"))
+                .roles("ADMIN").build());
+        manager.createUser(User
+                .withUsername("Anne")
+                .password(encoder().encode("anne"))
+                .roles("ADMIN").build());
+        manager.createUser(User
+                .withUsername("Johannes")
+                .password(encoder().encode("johannes"))
+                .roles("ADMIN").build());
+        manager.createUser(User
+                .withUsername("Stina-Lise")
+                .password(encoder().encode("stina-lise"))
                 .roles("ADMIN").build());
         return manager;
     }
