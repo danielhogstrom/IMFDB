@@ -33,13 +33,14 @@ public class MovieService {
             if (movie.getGenre().equals(genre)){
                 movies.add(movie);
             }
+
         }
         return movies;
     }
 
-    public boolean addMovie(Movie movie) {
+    public Movie addMovie(Movie movie) {
         int id = repository.findAll().size()+1;
         movie.setId(id);
-        return repository.findAll().add(movie);
+        return repository.save(movie);
     }
 }

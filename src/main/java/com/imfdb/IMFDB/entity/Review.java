@@ -21,6 +21,7 @@ public class Review {
     String review;
     @ManyToOne
     Movie movie;
+
 }
 
 

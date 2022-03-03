@@ -6,9 +6,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -18,7 +19,6 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private String genre;
     private String description;
     private int yearMade;
     private String director;
@@ -27,27 +27,10 @@ public class Movie {
     @Column(name = "movie_length")
     private String length;
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Review> reviews;
+    private Set<Review> review = new HashSet<>();
 
-    public Movie(String title,
-                 String genre,
-                 String description,
-                 int yearMade,
-                 String director,
-                 int recommendedAge,
-                 String imgUrl, String length) {
-        this.title = title;
-        this.genre = genre;
-        this.description = description;
-        this.yearMade = yearMade;
-        this.director = director;
-        this.recommendedAge = recommendedAge;
-        this.imgUrl = imgUrl;
-        this.length = length;
-        this.reviews = new ArrayList<>();
-    }
 
-    public Movie() {
-        this.reviews = new ArrayList<>();
-    }
+    @ManyToMany(mappedBy = "movies", cascade = CascadeType.ALL)
+    private Set<Genre> genre = new HashSet<>();
+
 }
