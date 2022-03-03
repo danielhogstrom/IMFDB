@@ -1,4 +1,4 @@
-<header th:fragment="header" xmlns:th="">
+<header th:fragment="header" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3  navbar-fixed-top navbar-inverse" id="navbarClass">
         <a class="navbar-brand" href="#" id="navbarBrand"></a>
         <a href="/"><img src="https://gcdnb.pbrd.co/images/VR1UwNMHJ49o.png?o=1" alt="" width="70" height="64"></a>
@@ -25,6 +25,9 @@
                         <a class="dropdown-item" href="/filterby/Action">Action</a>
                     </div>
                 </div>
+                <li sec:authorize="isAnonymous()" class="nav-item" id="login">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
