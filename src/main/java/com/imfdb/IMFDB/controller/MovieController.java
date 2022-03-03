@@ -2,17 +2,16 @@ package com.imfdb.IMFDB.controller;
 
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
+import com.imfdb.IMFDB.repository.MovieRepository;
 import com.imfdb.IMFDB.service.MovieService;
 import com.imfdb.IMFDB.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @SuppressWarnings("unused")
 @Controller
@@ -23,11 +22,23 @@ public class MovieController {
     @Autowired
     private ReviewService reviewService;
 
+    @Autowired
+    private MovieRepository repo;
+
     @GetMapping("/")
     public String getIndex(Model model) {
         List<Movie> movies = movieService.getMovies();
+        Movie featured = movieService.featured();
         model.addAttribute("movies", movies);
+        model.addAttribute("featured", featured);
         return "index";
+    }
+
+    @GetMapping("/search")
+    public String getsearch(@RequestParam String search, Model model){
+        List<Movie> movies = repo.findMovieByTitleContainingIgnoreCase(search);
+        model.addAttribute("movies", movies);
+        return "search";
     }
 
     @GetMapping("/movie/{id}")
@@ -57,4 +68,5 @@ public class MovieController {
         model.addAttribute("movies",movies);
         return "filterby";
     }
+
 }

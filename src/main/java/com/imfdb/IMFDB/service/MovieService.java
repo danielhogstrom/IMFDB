@@ -5,8 +5,10 @@ import com.imfdb.IMFDB.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SuppressWarnings("unused")
 @Service
@@ -40,6 +42,16 @@ public class MovieService {
     public boolean addMovie(Movie movie) {
         int id = repository.findAll().size()+1;
         movie.setId(id);
+        repository.save(movie);
         return repository.findAll().add(movie);
     }
+
+    public Movie featured(){
+        List<Movie> movies = repository.findMovieByYearMade(2001);
+        Random random = new Random();
+        int r = random.nextInt(1);
+        return movies.get(r);
+    }
 }
+
+//LocalDate.EPOCH.getYear()

@@ -1,3 +1,16 @@
 <footer th:fragment="footer" xmlns:th="">
+<div>Featured Films
+    <div class="container bg-dark w-25 p-3" id="containerImage">
+        <div class="row bg-dark" id="cardContainer">
+            <div class="card col-sm-12 col-md-6 col-xl-4 bg-dark" id="cardDivider">
+                <a th:href="@{/movie/{id}(id=${featured.id})}">
+                    <img class="movieCard1 card-img-top" id="movieCard" th:src="${featured.imgUrl}" alt="${featured.title}"></a>
+                <div class="card-body bg-dark" id="cardDivider2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <p>&copy; 2022 IMFDB</p>
 </footer>
