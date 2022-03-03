@@ -56,7 +56,8 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-    public String addMovie(@ModelAttribute Movie movie, BindingResult result, Model model) {
+
+    public String addMovie(Movie movie, BindingResult result, Model model) {
         validate(movie, result);
         if (result.hasErrors()) {
             model.addAttribute("errorMsg", "Validation failed, please enter correct data");
@@ -90,10 +91,10 @@ public class MovieController {
             result.rejectValue("length", "length.empty");
         }
         if (movie.getDescription()== null || movie.getDescription().equals("")) {
-            result.rejectValue("director", "director.empty");
+            result.rejectValue("description", "description.empty");
         }
         if (movie.getDescription()== null || movie.getDescription().length() > 200) {
-            result.rejectValue("director", "director.length");
+            result.rejectValue("description", "description.length");
         }
 
 
