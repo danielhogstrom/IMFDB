@@ -38,20 +38,16 @@ INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_
 VALUES ('Puss In Boots', 'Adventure', 'Now Zorro is a cat in boots' ,2011, 'Chris Miller', 8, 'https://tinyurl.com/pussinbootyz', '1:30');
 
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Snakes on a Plane', 'Adventure', 'Samuel l. Jackson fights a bunch of snakes on a plane' ,2006, 'David R. Ellis', 15, 'https://tinyurl.com/snakesonplaness', '1:45');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
 VALUES ('Finding Nemo', 'Adventure', 'A small piece of sushi is lost at sea' ,2003, 'Andrew Stanton', 8, 'https://tinyurl.com/findingNemoz', '1:40');
 
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('The Batman', 'Action', 'yet another Batman movie, yey!' ,2022, 'Matt Reeves', 13, 'tinyurl.com/nhz57tyj', '2:55');
+VALUES ('The Batman', 'Action', 'yet another Batman movie, yey!' ,2022, 'Matt Reeves', 13, 'https://tinyurl.com/nhz57tyj', '2:55');
 
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Fantastic Beasts: The Secrets of Dumbledore', 'Adventure', 'A young sexy Dumbledore works his magic' ,2022, 'David Yates', 8, 'tinyurl.com/463p7vjr', '2:40');
+VALUES ('Fantastic Beasts: The Secrets of Dumbledore', 'Adventure', 'A young sexy Dumbledore works his magic' ,2022, 'David Yates', 8, 'https://tinyurl.com/463p7vjr', '2:40');
 
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Minions: The Rise of Gru', 'Animation', 'ITS SO FLUFFY' ,2022, 'Kyle Balda', 3, 'tinyurl.com/38u5px3m', '1:40');
+VALUES ('Minions: The Rise of Gru', 'Animation', 'ITS SO FLUFFY' ,2022, 'Kyle Balda', 3, 'https://tinyurl.com/38u5px3m', '1:40');
 
 INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Doctor Strange in the Multiverse of Madness', 'Action', 'this world is your world, this world is my world, no wait thats your world, no wait thats my world' ,2022, 'Sam Raimi', 11, 'tinyurl.com/3nbmmdr6', '2:55');
-
+VALUES ('Doctor Strange in the Multiverse of Madness', 'Action', 'this world is your world, this world is my world, no wait thats your world, no wait thats my world' ,2022, 'Sam Raimi', 11, 'https://tinyurl.com/3nbmmdr6', '2:55');
