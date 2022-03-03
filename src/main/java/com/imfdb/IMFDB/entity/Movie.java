@@ -26,9 +26,9 @@ public class Movie {
     private String imgUrl;
     @Column(name = "movie_length")
     private String length;
+
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private Set<Review> review = new HashSet<>();
-
 
     @ManyToMany(mappedBy = "movies", cascade = CascadeType.ALL)
     private Set<Genre> genre = new HashSet<>();

@@ -19,12 +19,7 @@ public class MovieService {
     }
 
     public Movie findMovieById(int id) {
-        for (Movie movie : getMovies()) {
-            if (id == movie.getId()) {
-                return movie;
-            }
-        }
-        return null;
+      return repository.findById(id).orElse(new Movie());
     }
 
     public List<Movie> getMoviesByGenre(String genre){
@@ -33,14 +28,11 @@ public class MovieService {
             if (movie.getGenre().equals(genre)){
                 movies.add(movie);
             }
-
         }
         return movies;
     }
 
     public Movie addMovie(Movie movie) {
-        int id = repository.findAll().size()+1;
-        movie.setId(id);
         return repository.save(movie);
     }
 }

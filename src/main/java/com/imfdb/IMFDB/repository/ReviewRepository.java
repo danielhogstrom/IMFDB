@@ -7,23 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-//
-//    private @Getter
-//    List<Review>reviews;
-//
-//    public ReviewRepository() {
-//        this.reviews = new ArrayList<>();
-//    }
-//
-//    public boolean addReview(Review review) {
-//        return reviews.add(review);
-//    }
-//
-
-
-
-
+    public Set<Review> findByMovieId(int id);
 }

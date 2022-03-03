@@ -3,12 +3,15 @@ package com.imfdb.IMFDB.controller;
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
 import com.imfdb.IMFDB.repository.MovieRepository;
+import com.imfdb.IMFDB.repository.ReviewRepository;
 import com.imfdb.IMFDB.service.MovieService;
+import com.imfdb.IMFDB.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @SuppressWarnings("unused")
 @Controller
@@ -16,16 +19,14 @@ public class ReviewController {
 
     @Autowired
     private MovieService movieService;
-
     @Autowired
-    private MovieRepository movieRepository;
-
+    private ReviewService reviewService;
 
     @PostMapping("/movie/review/{movieId}")
     public String addReview(@PathVariable int movieId, @ModelAttribute Review review) {
         Movie movie = movieService.findMovieById(movieId);
-        movie.getReview().add(review);
-        movieRepository.save(movie);
+        review.setMovie(movie);
+        reviewService.addReview(review);
         return "redirect:/movie/" + movieId;
     }
 }

@@ -40,9 +40,8 @@ public class MovieController {
         for(Genre movie1 : movie.getGenre()) {
             genre+= movie1.toString() + "  ";
         }
-
         model.addAttribute("movie", movie);
-        model.addAttribute("reviews", reviewService.getReviewsByMovieId(id));
+        model.addAttribute("reviews", movie.getReview());
         model.addAttribute("review", new Review());
         model.addAttribute("genre", genre);
         return "movie";
