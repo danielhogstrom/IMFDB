@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,7 +98,8 @@
                       rows="3"
                       placeholder="Review"></textarea>
         </div>
-        <input type="submit" value="Submit review" id="review-button" class="btn btn-dark">
+        <h3 sec:authorize="isAnonymous()">You must login to write a review</h3>
+        <input sec:authorize="isAuthenticated()" type="submit" value="Submit review" id="review-button" class="btn btn-dark">
     </form>
 </div>
 <div th:insert="fragments/footer::footer"></div>
