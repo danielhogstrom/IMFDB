@@ -39,6 +39,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 //        movies.add(new Movie("Lethal Weapon", "Action","Mr.Gibson shoots a lot of bad guys and Mr.Glover is to old for this sh*t", 1987, "Richard Donner", 11, "https://tinyurl.com/leathalWEaponnnn", "1:49"));
 //        movies.add(new Movie("Uncharted", "Adventure","Wahlburger is funny and Tom takes of his shirt", 2022, "Ruben Fleischer", 11, "https://tinyurl.com/unchartedd", "1:56"));
 //        movies.add(new Movie("The Bourne Identity", "Action","Matt Damon is Jason Bourne but remembers.... NOTHING!", 2002, "Doug Liman", 11, "https://tinyurl.com/bourneidentt", "1:59"));
+
 //        movies.add(new Movie("Puss In Boots", "Adventure","Now Zorro is a cat in boots", 2011, "Chris Miller", 8, "https://tinyurl.com/pussinbootyz", "1:30"));
 //        movies.add(new Movie("Snakes on a Plane", "Adventure","Samuel l. Jackson fights a bunch of snakes on a plane", 2006, "David R. Ellis", 15, "https://tinyurl.com/snakesonplaness", "1:45"));
 //        movies.add(new Movie("Finding Nemo", "Adventure","A small piece of sushi is lost at sea", 2003, "Andrew Stanton", 8, "https://tinyurl.com/findingNemoz", "1:40"));
