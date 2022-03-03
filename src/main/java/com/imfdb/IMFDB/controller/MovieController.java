@@ -8,6 +8,8 @@ import com.imfdb.IMFDB.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,9 +56,50 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-    public String addMovie(@ModelAttribute Movie movie) {
+    public String addMovie(@ModelAttribute Movie movie, BindingResult result, Model model) {
+        validate(movie, result);
+        if (result.hasErrors()) {
+            model.addAttribute("errorMsg", "Validation failed, please enter correct data");
+            return "addmovie";
+        }
         movieService.addMovie(movie);
         return "redirect:/";
+    }
+
+    private void validate(Movie movie, BindingResult result) {
+
+        if (movie.getTitle()== null || movie.getTitle().equals("")) {
+            result.rejectValue("title", "title.empty");
+        }
+        if (movie.getGenre()== null || movie.getGenre().equals("")) {
+            result.rejectValue("Genre", "genre.empty");
+        }
+        if (movie.getImgUrl()== null || movie.getImgUrl().equals("")) {
+            result.rejectValue("imgUrl", "imgURL.empty");
+        }
+        if (movie.getRecommendedAge()== 0 || movie.getRecommendedAge() < 0) {
+            result.rejectValue("recommendedAge", "recommendedAge.empty");
+        }
+        if (movie.getDirector()== null || movie.getDirector().equals("")) {
+            result.rejectValue("director", "director.empty");
+        }
+        if (movie.getYearMade()== 0 || movie.getYearMade() < 0 || movie.getYearMade() > 2022) {
+            result.rejectValue("yearMade", "yearMade.empty");
+        }
+        if (movie.getLength()== null || movie.getLength().equals("")) {
+            result.rejectValue("length", "length.empty");
+        }
+        if (movie.getDescription()== null || movie.getDescription().equals("")) {
+            result.rejectValue("director", "director.empty");
+        }
+        if (movie.getDescription()== null || movie.getDescription().length() > 200) {
+            result.rejectValue("director", "director.length");
+        }
+
+
+
+
+
     }
 
     @GetMapping("/filterby/{genre}")
