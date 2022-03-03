@@ -19,7 +19,7 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/movie/{[0-9]}", "/filterby/{genre}").permitAll()
+                .antMatchers("/", "/movie/{[0-9]}", "/filterby/{genre}", "/styles.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
