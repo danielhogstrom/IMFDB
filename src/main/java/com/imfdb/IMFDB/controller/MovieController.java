@@ -66,8 +66,7 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-
-    public String addMovie(Movie movie, BindingResult result, Model model) {
+    public String addMovie(@ModelAttribute Movie movie, BindingResult result, Model model) {
         validate(movie, result);
         if (result.hasErrors()) {
             model.addAttribute("errorMsg", "Validation failed, please enter correct data");
