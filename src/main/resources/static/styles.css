@@ -100,3 +100,15 @@ background-color: #121212;
 color: white;
 }
 
+#buttonSearch,#buttonSearch2{
+background-color: black;
+color:white;
+border-color: gray;
+}
+
+#buttonSearch:hover,#buttonSearch2:hover{
+background-color: #121212;
+color:white;
+border-color: white;
+}
+
