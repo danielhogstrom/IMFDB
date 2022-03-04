@@ -28,6 +28,7 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/");
+        http.csrf().disable();
     }
     @Bean
     public UserDetailsService userDetailsService() {

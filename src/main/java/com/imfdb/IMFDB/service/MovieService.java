@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SuppressWarnings("unused")
 @Service
@@ -34,5 +35,12 @@ public class MovieService {
 
     public Movie addMovie(Movie movie) {
         return repository.save(movie);
+    }
+
+    public Movie featured(){
+        List<Movie> movies = repository.findMovieByYearMade(2022);
+        Random random = new Random();
+        int r = random.nextInt(movies.size());
+        return movies.get(r);
     }
 }
