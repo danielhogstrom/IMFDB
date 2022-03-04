@@ -26,52 +26,26 @@
 <form th:action="'/addmovie'" method="post" th:object="${movie}">
     <div class="form-row">
         <div class="form-group col-md-6">
-
-
             <label for="inputTitle">Movie Title</label>
-
             <input th:field="*{title}" class="form-control" id="inputTitle" placeholder="Titanic" th:errorClass="errorIMFDB">
-
         </div>
-        <div class="form-group col-md-4">
-
-
-            <label for="inputGenre">Genre</label>
-            <select th:field="*{Genre}" id="inputGenre" class="form-control">
-                <option selected th:value="Drama">Drama</option>
-                <option th:value="Action">Action</option>
-                <option th:value="Adventure">Adventure</option>
-                <option th:value="Comedy">Comedy</option>
-                <option th:value="Romance">Romance</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-
-
+        <div class="form-group col-md-6">
         <label for="inputImgUrl">imgUrl for the movie </label>
         <input type="text" th:field="*{imgUrl}" class="form-control" id="inputImgUrl" placeholder="https://tinyurl.com/5xamvdfs" th:errorClass="errorIMFDB">
     </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-
-
             <label for="inputRecommendedAge">Recommended age of viewer</label>
             <input th:field="*{recommendedAge}" class="form-control" id="inputRecommendedAge" th:errorClass="errorIMFDB">
         </div>
         <div class="form-group col-md-6">
-
-
             <label for="inputDirector">Director</label>
             <input th:field="*{director}" class="form-control" id="inputDirector" placeholder="Director" th:errorClass="errorIMFDB">
         </div>
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
-
-
 
         <label for="inputYearMade">Year of release</label>
         <input th:field="*{yearMade}" class="form-control" id="inputYearMade" placeholder="2000" th:errorClass="errorIMFDB">
@@ -84,8 +58,6 @@
     </div>
     </div>
     <div class="form-group">
-
-
         <label for="inputDescription">Storyline</label>
         <textarea th:field="*{description}" class="form-control" id="inputDescription" rows="3"></textarea>
     </div>

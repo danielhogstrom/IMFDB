@@ -82,9 +82,7 @@ public class MovieController {
         if (movie.getTitle()== null || movie.getTitle().equals("")) {
             result.rejectValue("title", "title.empty");
         }
-        if (movie.getGenre()== null || movie.getGenre().equals("")) {
-            result.rejectValue("Genre", "genre.empty");
-        }
+
         if (movie.getImgUrl()== null || movie.getImgUrl().equals("")) {
             result.rejectValue("imgUrl", "imgURL.empty");
         }
@@ -115,3 +113,19 @@ public class MovieController {
         return "filterby";
     }
 }
+
+/*
+<div class="form-group col-md-4">
+
+
+           <label for="inputGenre">Genre</label>
+            <select th:field="*{Genre}" id="inputGenre" class="form-control">
+                <option selected th:value="Drama">Drama</option>
+                <option th:value="Action">Action</option>
+                <option th:value="Adventure">Adventure</option>
+                <option th:value="Comedy">Comedy</option>
+                <option th:value="Romance">Romance</option>
+            </select>
+        </div>
+
+ */
