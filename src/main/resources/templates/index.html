@@ -33,12 +33,12 @@
     </div>
 </div>
 <div>Featured Movie
-    <div class="container bg-dark w-25 p-3">
-        <div class="row bg-dark">
-            <div class="card col-sm-12 col-md-6 col-xl-4 bg-dark">
+    <div class="container bg-dark w-25 p-3" id="movieCardClass2">
+        <div class="row bg-dark" id="movieCardClass1">
+            <div class="card col-sm-12 col-md-6 col-xl-4 bg-dark" id="movieCardClass3">
                 <a th:href="@{/movie/{id}(id=${featured.id})}">
                     <img class="movieCard1 card-img-top"  th:src="${featured.imgUrl}" alt="${featured.title}"></a>
-                <div class="card-body bg-dark">
+                <div class="card-body bg-dark" id="movieCardClass4">
                 </div>
             </div>
         </div>
