@@ -58,7 +58,6 @@ VALUES('Sport');
 INSERT INTO GENRE (genre) --20
 VALUES('Superhero');
 
-
 INSERT INTO GENRE (genre) --21
 VALUES('Thriller');
 
@@ -67,20 +66,6 @@ VALUES('War');
 
 INSERT INTO GENRE (genre) --23
 VALUES('Western');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('The Batman', 'Action', 'yet another Batman movie, yey!' ,2022, 'Matt Reeves', 13, 'https://tinyurl.com/nhz57tyj', '2:55');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Fantastic Beasts: The Secrets of Dumbledore', 'Adventure', 'A young sexy Dumbledore works his magic' ,2022, 'David Yates', 8, 'https://tinyurl.com/463p7vjr', '2:40');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Minions: The Rise of Gru', 'Animation', 'ITS SO FLUFFY' ,2022, 'Kyle Balda', 3, 'https://tinyurl.com/38u5px3m', '1:40');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Doctor Strange in the Multiverse of Madness', 'Action', 'this world is your world, this world is my world, no wait thats your world, no wait thats my world' ,2022, 'Sam Raimi', 11, 'https://tinyurl.com/3nbmmdr6', '2:55');
-INSERT INTO GENRE (genre) --21
-VALUES('Thriller');
 
 --
 INSERT INTO MOVIES (title, description, year_made, director, recommended_age, img_url, movie_length)
@@ -273,5 +258,37 @@ VALUES (3,15);
 
 INSERT INTO GENRE_MOVIES (GENRE_ID,MOVIES_ID)
 VALUES (5,15);
+
+--
+
+INSERT INTO MOVIES (title, description, year_made, director, recommended_age, img_url, movie_length)
+VALUES ('The Batman', 'yet another Batman movie, yey!' ,2022, 'Matt Reeves', 13, 'https://tinyurl.com/nhz57tyj', '2:55');
+
+INSERT INTO GENRE_MOVIES (GENRE_ID,MOVIES_ID)
+VALUES (1,16);
+
+--
+
+INSERT INTO MOVIES (title, description, year_made, director, recommended_age, img_url, movie_length)
+VALUES ('Fantastic Beasts: The Secrets of Dumbledore', 'A young sexy Dumbledore works his magic' ,2022, 'David Yates', 8, 'https://tinyurl.com/463p7vjr', '2:40');
+
+INSERT INTO GENRE_MOVIES (GENRE_ID,MOVIES_ID)
+VALUES (2,17);
+
+--
+
+INSERT INTO MOVIES (title, description, year_made, director, recommended_age, img_url, movie_length)
+VALUES ('Minions: The Rise of Gru', 'ITS SO FLUFFY' ,2022, 'Kyle Balda', 3, 'https://tinyurl.com/38u5px3m', '1:40');
+
+INSERT INTO GENRE_MOVIES (GENRE_ID,MOVIES_ID)
+VALUES (3,18);
+
+--
+
+INSERT INTO MOVIES (title, description, year_made, director, recommended_age, img_url, movie_length)
+VALUES ('Doctor Strange in the Multiverse of Madness', 'this world is your world, this world is my world, no wait thats your world, no wait thats my world' ,2022, 'Sam Raimi', 11, 'https://tinyurl.com/3nbmmdr6', '2:55');
+
+INSERT INTO GENRE_MOVIES (GENRE_ID,MOVIES_ID)
+VALUES (1,19);
 
 --
