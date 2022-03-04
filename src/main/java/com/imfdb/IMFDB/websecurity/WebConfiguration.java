@@ -20,7 +20,7 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/movie/{[0-100]}", "/filterby/{genre}", "/styles.css").permitAll()
+                .antMatchers("/", "/movie/{[0-100]}", "/filterby/{genre}", "/styles.css", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -28,7 +28,6 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/");
-        http.csrf().disable();
     }
     @Bean
     public UserDetailsService userDetailsService() {

@@ -23,7 +23,7 @@
 
 <p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
 
-<form action="/addmovie" method="post" th:object="${movie}">
+<form th:action="'/addmovie'" method="post" th:object="${movie}">
     <div class="form-row">
         <div class="form-group col-md-6">
 
