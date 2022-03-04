@@ -1,5 +1,6 @@
 package com.imfdb.IMFDB.controller;
 
+import com.imfdb.IMFDB.entity.Genre;
 import com.imfdb.IMFDB.entity.Movie;
 import com.imfdb.IMFDB.entity.Review;
 import com.imfdb.IMFDB.repository.MovieRepository;
@@ -8,8 +9,14 @@ import com.imfdb.IMFDB.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,9 +51,15 @@ public class MovieController {
     @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable int id, Model model) {
         Movie movie = movieService.findMovieById(id);
+        String genre = "";
+
+        for(Genre movie1 : movie.getGenre()) {
+            genre+= movie1.toString() + "  ";
+        }
         model.addAttribute("movie", movie);
-        model.addAttribute("reviews", reviewService.getReviewsByMovieId(id));
+        model.addAttribute("reviews", movie.getReview());
         model.addAttribute("review", new Review());
+        model.addAttribute("genre", genre);
         return "movie";
     }
 
@@ -57,9 +70,51 @@ public class MovieController {
     }
 
     @PostMapping("/addmovie")
-    public String addMovie(@ModelAttribute Movie movie) {
+
+    public String addMovie(Movie movie, BindingResult result, Model model) {
+        validate(movie, result);
+        if (result.hasErrors()) {
+            model.addAttribute("errorMsg", "Validation failed, please enter correct data");
+            return "addmovie";
+        }
         movieService.addMovie(movie);
         return "redirect:/";
+    }
+
+    private void validate(Movie movie, BindingResult result) {
+
+        if (movie.getTitle()== null || movie.getTitle().equals("")) {
+            result.rejectValue("title", "title.empty");
+        }
+        if (movie.getGenre()== null || movie.getGenre().equals("")) {
+            result.rejectValue("Genre", "genre.empty");
+        }
+        if (movie.getImgUrl()== null || movie.getImgUrl().equals("")) {
+            result.rejectValue("imgUrl", "imgURL.empty");
+        }
+        if (movie.getRecommendedAge()== 0 || movie.getRecommendedAge() < 0) {
+            result.rejectValue("recommendedAge", "recommendedAge.empty");
+        }
+        if (movie.getDirector()== null || movie.getDirector().equals("")) {
+            result.rejectValue("director", "director.empty");
+        }
+        if (movie.getYearMade()== 0 || movie.getYearMade() < 0 || movie.getYearMade() > 2022) {
+            result.rejectValue("yearMade", "yearMade.empty");
+        }
+        if (movie.getLength()== null || movie.getLength().equals("")) {
+            result.rejectValue("length", "length.empty");
+        }
+        if (movie.getDescription()== null || movie.getDescription().equals("")) {
+            result.rejectValue("description", "description.empty");
+        }
+        if (movie.getDescription()== null || movie.getDescription().length() > 200) {
+            result.rejectValue("description", "description.length");
+        }
+
+
+
+
+
     }
 
     @GetMapping("/filterby/{genre}")
@@ -68,27 +123,4 @@ public class MovieController {
         model.addAttribute("movies",movies);
         return "filterby";
     }
-
 }
-
-/*
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('The Batman', 'Action', 'yet another Batman movie, yey!' ,2022, 'Matt Reeves', 13, 'tinyurl.com/nhz57tyj', '2:55');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Fantastic Beasts: The Secrets of Dumbledore', 'Adventure', 'A young sexy Dumbledore works his magic' ,2022, 'David Yates', 8, 'tinyurl.com/463p7vjr', '2:40');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Minions: The Rise of Gru', 'Animation', 'ITS SO FLUFFY' ,2022, 'Kyle Balda', 3, 'https://tinyurl.com/38u5px3m', '1:40');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Doctor Strange in the Multiverse of Madness', 'Action', 'this world is your world, this world is my world, no wait thats your world, no wait thats my world' ,2022, 'Sam Raimi', 11, 'tinyurl.com/3nbmmdr6', '2:55');
-
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Snakes on a Plane', 'Adventure', 'Samuel l. Jackson fights a bunch of snakes on a plane' ,2006, 'David R. Ellis', 15, 'https://tinyurl.com/snakesonplaness', '1:45');
-
-INSERT INTO MOVIES (title, genre, description, year_made, director, recommended_age, img_url, movie_length)
-VALUES ('Doctor Strange in the Multiverse of Madness', 'Adventure', 'A small piece of sushi is lost at sea' ,2003, 'Andrew Stanton', 8, 'https://tinyurl.com/findingNemoz', '1:40');
- */

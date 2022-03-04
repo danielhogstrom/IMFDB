@@ -1,4 +1,4 @@
-<header th:fragment="header" xmlns:th="">
+<header th:fragment="header" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3  navbar-fixed-top navbar-inverse" id="navbarClass">
         <a class="navbar-brand" href="#" id="navbarBrand"></a>
         <a href="/"><img src="https://gcdnb.pbrd.co/images/VR1UwNMHJ49o.png?o=1" alt="" width="70" height="64"></a>
@@ -7,15 +7,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="nav navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" id="nav-item">
-                    <a class="nav-link" href="/addmovie">Add a movie</a>
+                    <a sec:authorize="isAuthenticated()" class="nav-link" href="/addmovie">Add a movie</a>
                 </li>
                 <div class="dropdown">
-                    <li class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Filter by genre
                     </li>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -24,6 +25,16 @@
                         <a class="dropdown-item" href="/filterby/Comedy">Comedy</a>
                         <a class="dropdown-item" href="/filterby/Action">Action</a>
                     </div>
+                </div>
+                <div>
+                    <ul>
+                        <li sec:authorize="isAnonymous()" class="nav-item" id="login">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="nav-item" id="logout">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </ul>
             <form class="d-flex" action="/search/" method="GET">

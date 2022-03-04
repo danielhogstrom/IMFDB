@@ -1,14 +1,10 @@
 package com.imfdb.IMFDB.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -18,9 +14,14 @@ public class Review {
     private Integer id;
     String name;
     int score;
-    String review;
+    String input;
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     Movie movie;
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
 }
 
 

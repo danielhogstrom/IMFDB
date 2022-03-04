@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <td>Genre</td>
-                                <td th:text="${movie.genre}"></td>
+                                <td th:text="${genre}"></td>
                             </tr>
                             <tr>
                                 <td>Production year</td>
@@ -73,7 +73,7 @@
     <div class="card container text-white mt-3" id="cardContainer">
         <div class="card-body">
             <h6 th:text="'Rating: ' + ${review.score}"></h6>
-            <p class="card-text" th:text="${review.review}">Some quick example text to build on the card title and make
+            <p class="card-text" th:text="${review.input}">Some quick example text to build on the card title and make
                 up the bulk of the card's content.</p>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Name of reviewer: '+  ${review.name}">Card subtitle</h6>
         </div>
@@ -94,11 +94,12 @@
             <option th:value="5">5</option>
         </select>
         <div class="mb-3">
-            <textarea th:field="*{review}" class="form-control-lg form-control" id="exampleFormControlTextarea1"
+            <textarea th:field="*{input}" class="form-control-lg form-control" id="exampleFormControlTextarea1"
                       rows="3"
                       placeholder="Review"></textarea>
         </div>
-        <input type="submit" value="Submit review" id="review-button" class="btn btn-dark">
+        <h3 sec:authorize="isAnonymous()">You must login to write a review</h3>
+        <input sec:authorize="isAuthenticated()" type="submit" value="Submit review" id="review-button" class="btn btn-dark">
     </form>
 </div>
 <div th:insert="fragments/footer::footer"></div>
