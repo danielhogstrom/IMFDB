@@ -21,6 +21,11 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     List<Movie> findMovieByYearMade(int yearMade);
 
+    @Query(value = "SELECT * FROM MOVIES JOIN GENRE_MOVIES ON GENRE_MOVIES.MOVIES_ID=MOVIES.ID " +
+            "JOIN GENRE ON GENRE_MOVIES.GENRE_ID=GENRE.ID " +
+            "WHERE GENRE.GENRE =  ?1", nativeQuery = true)
+    List<Movie> findMovieByGenre(String genre);
+
 
 //    private @Getter
 //    List<Movie> movies;

@@ -24,13 +24,7 @@ public class MovieService {
     }
 
     public List<Movie> getMoviesByGenre(String genre){
-        List<Movie> movies = new ArrayList<>();
-        for (Movie movie : repository.findAll()){
-            if (movie.getGenre().equals(genre)){
-                movies.add(movie);
-            }
-        }
-        return movies;
+        return repository.findMovieByGenre(genre);
     }
 
     public Movie addMovie(Movie movie) {

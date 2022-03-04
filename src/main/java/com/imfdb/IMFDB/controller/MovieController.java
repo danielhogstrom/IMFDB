@@ -106,11 +106,6 @@ public class MovieController {
         if (movie.getDescription()== null || movie.getDescription().length() > 200) {
             result.rejectValue("description", "description.length");
         }
-
-
-
-
-
     }
 
     @GetMapping("/filterby/{genre}")
