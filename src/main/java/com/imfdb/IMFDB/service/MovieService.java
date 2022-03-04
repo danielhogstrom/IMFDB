@@ -38,9 +38,9 @@ public class MovieService {
     }
 
     public Movie featured(){
-        List<Movie> movies = repository.findMovieByYearMade(2001);
+        List<Movie> movies = repository.findMovieByYearMade(2022);
         Random random = new Random();
-        int r = random.nextInt(1);
+        int r = random.nextInt(movies.size());
         return movies.get(r);
     }
 }

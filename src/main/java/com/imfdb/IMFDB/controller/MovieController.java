@@ -32,8 +32,8 @@ public class MovieController {
     @GetMapping("/")
     public String getIndex(Model model) {
         List<Movie> movies = movieService.getMovies();
-        Movie featured = movieService.featured();
         model.addAttribute("movies", movies);
+        Movie featured = movieService.featured();
         model.addAttribute("featured", featured);
         return "index";
     }
